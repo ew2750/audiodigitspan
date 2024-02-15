@@ -1,0 +1,60 @@
+<!DOCTYPE html><html class=''>
+<head>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+    <title>Digit span</title>
+    
+<link rel='stylesheet' type='text/css' href='static/css/jspsych.css'>
+<link rel='stylesheet' type='text/css' href='static/css/default_style.css'>
+<link rel='stylesheet' type='text/css' href='static/experiments/digit_span/style.css'>
+</head>
+
+<body>
+<!-- <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script> -->
+<script src='static/js/jspsych/plugins/jquery.min.js'></script>
+<script src='static/js/jspsych/jspsych.js'></script>
+<script src='static/js/jspsych/plugins/jspsych-text.js'></script>
+<script src='static/js/jspsych/poldrack_plugins/jspsych-poldrack-text.js'></script>
+<script src='static/js/jspsych/poldrack_plugins/jspsych-poldrack-instructions.js'></script>
+<script src='static/js/jspsych/poldrack_plugins/jspsych-attention-check.js'></script>
+<script src='static/js/jspsych/poldrack_plugins/jspsych-poldrack-single-stim.js'></script>
+<script src='static/js/jspsych/poldrack_plugins/jspsych-poldrack-multi-stim-multi-response.js'></script>
+<script src='static/js/jspsych/poldrack_plugins/jspsych-single-stim-button.js'></script>
+<script src='static/js/jspsych/plugins/jspsych-survey-text.js'></script>
+<script src='static/js/utils/poldrack_utils.js'></script>
+<script src='static/experiments/digit_span/experiment.js'></script>
+
+<script>
+$( document ).ready(function() {
+
+    expfactory_finished = false;
+
+    jsPsych.init({
+timeline: digit_span_experiment,
+display_element: "getDisplayElement",
+fullscreen: true,
+on_trial_finish: function(data){
+addID('digit_span')
+},
+on_finish: function(data){
+jsPsych.data.localSave('digit_span_results.csv', 'csv');
+expfactory_finished = true;
+}
+});
+
+});
+</script>
+</body>
+</html>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-76442333-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
