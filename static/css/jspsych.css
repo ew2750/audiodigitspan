@@ -207,7 +207,7 @@ input[type="text"] {
   margin: 0.25em 0em;
 }
 .jspsych-survey-text-question {
-  margin: 2em 0em;
+  margin: 20em 0em 0em 0em;
 }
 
 /* PLUGIN: jspsych-survey-likert */
