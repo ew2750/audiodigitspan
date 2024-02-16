@@ -36,6 +36,8 @@ var randomDraw = function(lst) {
   return lst[index]
 }
 
+var lang = 'chi'
+
 var setStims = function() {
   curr_seq = []
   stim_array = []
@@ -46,10 +48,10 @@ var setStims = function() {
     var num = randomDraw(nums.filter(function(x) {return Math.abs(x-last_num)>2}))
     last_num = num
     curr_seq.push(num)
-    stim_array.push('<div> <audio autoplay> <source src="static/sk/sk_'+num+'.wav" type="audio/wav"></audio></div>');
+    stim_array.push('<div> <audio autoplay> <source src="static/'+lang+'/'+lang+'_0'+num+'.wav" type="audio/wav"></audio></div>');
     time_array.push(stim_time)
   }
-  total_time = num_digits * (stim_time + gap_time)
+  total_time = num_digits*1000+500
 
 }
 
@@ -96,7 +98,7 @@ var instructTimeThresh = 0 ///in seconds
 var num_digits = 3
 var num_trials = 14
 var curr_seq = []
-var stim_time = 800
+var stim_time = 1300
 var gap_time = 200
 var time_array = []
 var total_time = 0
@@ -212,7 +214,7 @@ var end_block = {
   },
   text: '<div class = centerbox><p class = center-block-text>Thanks for completing this task!</p><p class = center-block-text>Press <strong>enter</strong> to continue.</p></div>',
   cont_key: [13],
-  timing_post_trial: 0
+  timing_post_trial: 500
 };
 
 
