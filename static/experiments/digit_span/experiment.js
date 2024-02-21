@@ -51,7 +51,7 @@ var setStims = function() {
     stim_array.push('<div> <audio autoplay> <source src="static/'+lang+'/'+lang+'_0'+num+'.wav" type="audio/wav"></audio></div>');
     time_array.push(stim_time)
   }
-  total_time = num_digits*1000+500
+  total_time = num_digits*1300+500
 
 }
 
@@ -99,7 +99,7 @@ var num_digits = 3
 var num_trials = 14
 var curr_seq = []
 var stim_time = 1300
-var gap_time = 200
+var gap_time = 100
 var time_array = []
 var total_time = 0
 var errors = 0
@@ -121,6 +121,33 @@ var response_grid =
   // '<button id = button_9 class = "square num-button" onclick = "recordClick(this)"><div class = content><div class = numbers>9</div></div></button>' +
   '<button class = clear_button id = "ClearButton" onclick = "clearResponse()">Clear</button>' +
   '<button class = submit_button id = "SubmitButton">Submit Answer</button></div>'
+
+
+/* ************************************ */
+/* Set up preload */
+/* ************************************ */
+
+  var all_audios = [
+    'static/sk/sk_1.wav',
+    'static/sk/sk_2.wav',
+    'static/sk/sk_3.wav',
+    'static/sk/sk_4.wav',
+    'static/sk/sk_5.wav',
+    'static/sk/sk_6.wav',
+    'static/sk/sk_7.wav',
+    'static/sk/sk_8.wav',
+    'static/sk/sk_9.wav',
+    'static/chi/chi_01.wav',
+    'static/chi/chi_02.wav',
+    'static/chi/chi_03.wav',
+    'static/chi/chi_04.wav',
+    'static/chi/chi_05.wav',
+    'static/chi/chi_06.wav',
+    'static/chi/chi_07.wav',
+    'static/chi/chi_08.wav',
+    'static/chi/chi_09.wav'
+  ]
+
 
 /* ************************************ */
 /* Set up jsPsych blocks */

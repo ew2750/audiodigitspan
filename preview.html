@@ -29,17 +29,19 @@ $( document ).ready(function() {
 
     expfactory_finished = false;
 
+
     jsPsych.init({
-timeline: digit_span_experiment,
-display_element: "getDisplayElement",
-fullscreen: true,
-on_trial_finish: function(data){
-addID('digit_span')
-},
-on_finish: function(data){
-jsPsych.data.localSave('digit_span_results.csv', 'csv');
-expfactory_finished = true;
-}
+        timeline: digit_span_experiment,
+        preload_audio: all_audios,
+        display_element: "getDisplayElement",
+        fullscreen: true,
+        on_trial_finish: function(data){
+        addID('digit_span')
+        },
+        on_finish: function(data){
+        jsPsych.data.localSave('digit_span_results.csv', 'csv');
+        expfactory_finished = true;
+        }
 });
 
 });
