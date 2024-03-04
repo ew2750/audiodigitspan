@@ -100,7 +100,7 @@ input[type="text"] {
   text-align: center;
   padding: 10px 0px;
 }
-#jspsych-progressbar-container s {}
+/* #jspsych-progressbar-containers {} */
 #jspsych-progressbar-outer {
   background-color: #dedede;
   border-radius: 5px;
@@ -208,6 +208,9 @@ input[type="text"] {
 }
 .jspsych-survey-text-question {
   margin: 20em 0em 0em 0em;
+}
+.jspsych-survey-text-input {
+  display: inline-block; /* Display inline to appear in a single row */
 }
 
 /* PLUGIN: jspsych-survey-likert */

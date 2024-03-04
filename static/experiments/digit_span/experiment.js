@@ -36,7 +36,7 @@ var randomDraw = function(lst) {
   return lst[index]
 }
 
-var lang = 'sk'
+var lang = 'chi'
 
 var setStims = function() {
   curr_seq = []
@@ -48,7 +48,7 @@ var setStims = function() {
     var num = randomDraw(nums.filter(function(x) {return Math.abs(x-last_num)>2}))
     last_num = num
     curr_seq.push(num)
-    stim_array.push('<div> <audio autoplay> <source src="static/'+lang+'/'+lang+'_'+num+'.wav" type="audio/wav"></audio></div>');
+    stim_array.push('<div> <audio autoplay> <source src="static/'+lang+'/'+lang+'_0'+num+'.wav" type="audio/wav"></audio></div>');
     time_array.push(stim_time)
   }
   total_time = num_digits*1300+500
@@ -96,7 +96,8 @@ var instructTimeThresh = 0 ///in seconds
 
 // task specific variables
 var num_digits = 3
-var num_trials = 14
+var num_forward_trials = 10
+var num_reverse_trials = 7
 var curr_seq = []
 var stim_time = 1300
 var gap_time = 100
@@ -311,12 +312,13 @@ function updateResponse() {
 
 var forward_response_block = {
   type: 'survey-text',
+  // rows: 
   data: {
            exp_id: "digit_span",
            trial_id: "post task questions"
        },
   questions: [
-    '<p class = center-block-text style = "font-size: 20px">Please enter the numbers. </p>'
+    '<p class = center-block-text style = "font-size: 20px">Please enter the numbers FORWARD. </p>'
   ],
   button_label:	'Submit',
 
@@ -369,7 +371,7 @@ var reverse_response_block = {
            trial_id: "post task questions"
        },
   questions: [
-    '<p class = center-block-text style = "font-size: 20px">Please enter the numbers. </p>'
+    '<p class = center-block-text style = "font-size: 20px">Please enter the numbers BACKWARD. </p>'
   ],
   button_label:	'Submit',
 
@@ -430,7 +432,7 @@ var feedback_block = {
 /* create experiment definition array */
 var digit_span_experiment = [];
 digit_span_experiment.push(instruction_node);
-for (i = 0; i < num_trials ; i++ ) {
+for (i = 0; i < num_forward_trials ; i++ ) {
 	digit_span_experiment.push(start_test_block)
 	digit_span_experiment.push(test_block)
 	digit_span_experiment.push(forward_response_block)
@@ -438,7 +440,7 @@ for (i = 0; i < num_trials ; i++ ) {
 }
 digit_span_experiment.push(attention_node)
 digit_span_experiment.push(start_reverse_block)
-for (i = 0; i < num_trials ; i++ ) {
+for (i = 0; i < num_reverse_trials ; i++ ) {
 	digit_span_experiment.push(start_test_block)
 	digit_span_experiment.push(test_block)
 	digit_span_experiment.push(reverse_response_block)

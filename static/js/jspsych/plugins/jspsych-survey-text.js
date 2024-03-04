@@ -51,10 +51,12 @@ jsPsych.plugins['survey-text'] = (function() {
       }));
 
       // add question text
-      $("#jspsych-survey-text-" + i).append('<p class="jspsych-survey-text">' + trial.questions[i] + '</p>');
+      $("#jspsych-survey-text-" + i).append('<p class="jspsych-survey-text" >' + trial.questions[i] + '</p>');
 
       // add text box
-      $("#jspsych-survey-text-" + i).append('<textarea name="#jspsych-survey-text-response-' + i + '" cols="' + trial.columns[i] + '" rows="' + trial.rows[i] + '"></textarea>');
+      // add text box
+      $("#jspsych-survey-text-" + i).append('<textarea class=jspsych-survey-text-input name="#jspsych-survey-text-response-' + i + '" cols="' + trial.columns[i] + '" rows="' + trial.rows[i] + '"style="width: 246px; height: 15px; resize: none; " maxlength="15"></textarea>');
+
     }
 
     // add submit button
